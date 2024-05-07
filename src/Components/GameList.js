@@ -1,43 +1,8 @@
-// import React, { useState, useEffect } from 'react';
-
-// const GameList = () => {
-//   const [games, setGames] = useState([]);
-
-//   useEffect(() => {
-//     const fetchGames = async () => {
-//       try {
-//         const response = await fetch('https://api.rawg.io/api/games?key=6e2c3d10b67342d8a5dac993f10b5393');
-//         if (!response.ok) {
-//           throw new Error('Network response was not ok.');
-//         }
-//         const data = await response.json();
-//         setGames(data.results);
-//       } catch (error) {
-//         console.error('Error fetching data:', error);
-//       }
-//     };
-
-//     fetchGames();
-//   }, []);
-
-//   return (
-//     <div>
-//       <h1>Game List</h1>
-//       <ul>
-//         {games.map((game) => (
-//           <li key={game.id}>{game.name}</li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default GameList;
-
 import React, { useState, useEffect } from "react";
 import { FaXbox, FaWindows, FaApple, FaLinux } from "react-icons/fa";
 import { SiPlaystation5, SiPlaystation4 } from "react-icons/si";
 import { BsNintendoSwitch, BsAndroid2 } from "react-icons/bs";
+import { FaStar, FaStarHalfAlt  } from "react-icons/fa";
 
 const GameList = () => {
   const [games, setGames] = useState([]);
@@ -83,6 +48,29 @@ const GameList = () => {
         return null;
     }
   };
+  const renderRatingStars = (rating) => {
+    const roundedRating = Math.round(rating * 10) / 10; // Round off to 1 decimal place
+    const stars = [];
+    const fullStars = Math.floor(roundedRating);
+    const halfStar = roundedRating - fullStars > 0 ? 1 : 0;
+
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<FaStar key={i} className="text-yellow-500" />);
+    }
+    if (halfStar === 1) {
+      stars.push(<FaStarHalfAlt key={fullStars} className="text-yellow-500" />);
+    }
+
+    return (
+      <div className="flex">
+        {stars.map((star, index) => (
+          <div key={index} className="flex items-center">
+            {star}
+          </div>
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className="grid grid-cols-1 ps-4 pr-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -106,15 +94,13 @@ const GameList = () => {
                 </span>
               ))}
             </div>
-            <p className="text-white mb-2">
+            <p className=" text-white mb-2">
               Genres: {game.genres.map((genre) => genre.name).join(", ")}
             </p>
-            <p className="text-white mb-2">Rating: {game.rating}</p>
-            {game.clip && (
-              <video controls className="w-full">
-                <source src={game.clip.clip} type="video/mp4" />
-              </video>
-            )}
+            <p className="text-white mb-2 ">
+              Rating: {renderRatingStars(game.rating)}
+            </p>
+            
           </div>
         </div>
       ))}

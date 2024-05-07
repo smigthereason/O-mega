@@ -89,7 +89,7 @@ const Footer = () => {
       <div className="container mx-auto flex flex-wrap justify-between">
         <div className="w-full sm:w-1/2 lg:w-1/4 mb-8">
           <img
-            src="/src/Assets/logo-no-background.png"
+            src="../Assets/logo-white.png"
             alt="logo"
             className="w-24 mb-4"
           />

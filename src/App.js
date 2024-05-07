@@ -27,11 +27,11 @@
 // export default App;
 import React from "react";
 import Navbar from "./Components/Navbar";
-import VideoBackground from "./Assets/4k_Mystery.mp4";
+import VideoBackground from "./Assets/4k.mp4";
 import GameList from './Components/GameList';
 import Discount from "./Components/Discount";
 import Sponsors from "./Components/Sponsors";
-import Footer from "./Components/Footer"
+import Foooter from "./Components/Foooter"
 
 const App = () => {
   return (
@@ -46,7 +46,7 @@ const App = () => {
           </div>
           <Discount />
           <Sponsors />
-          <Footer />
+          <Foooter />
         </div>
       </section>
     </div>
