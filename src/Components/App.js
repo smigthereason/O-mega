@@ -1,7 +1,9 @@
 import React from "react";
 import Navbar from "./Navbar";
 // import GameList from './GameList';
-import Footer from "./Footer";
+import Discount from "./Discount";
+import Sponsors from "./Sponsors";
+// import Footer from "./Footer";
 
 const App = () => {
   // const [searchTerm, setSearchTerm] = useState('');
@@ -19,9 +21,9 @@ const App = () => {
         {/* <GameList /> */}
       </section>
 
-      
-    
-        <Footer />
+      <Discount />
+      <Sponsors />
+      {/* <Footer /> */}
     </div>
   );
 };
