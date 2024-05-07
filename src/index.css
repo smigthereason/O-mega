@@ -40,3 +40,8 @@ code {
   z-index: 1;
 }
 
+.game-list-section {
+  max-height: 500px; 
+  overflow-y: hidden; 
+}
+

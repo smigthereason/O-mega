@@ -35,9 +35,9 @@
 // export default GameList;
 
 import React, { useState, useEffect } from "react";
-import { FaXbox, FaWindows, FaApple } from "react-icons/fa";
+import { FaXbox, FaWindows, FaApple, FaLinux } from "react-icons/fa";
 import { SiPlaystation5, SiPlaystation4 } from "react-icons/si";
-import { BsNintendoSwitch } from "react-icons/bs";
+import { BsNintendoSwitch, BsAndroid2 } from "react-icons/bs";
 
 const GameList = () => {
   const [games, setGames] = useState([]);
@@ -46,7 +46,7 @@ const GameList = () => {
     const fetchGames = async () => {
       try {
         const response = await fetch(
-          "https://api.rawg.io/api/games?key=6e2c3d10b67342d8a5dac993f10b5393&dates=2022-01-01,2022-12-31&ordering=-added&page_size=36"
+          "https://api.rawg.io/api/games?key=6e2c3d10b67342d8a5dac993f10b5393&dates=2018-01-01,2022-12-31&ordering=-added&page_size=200"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok.");
@@ -75,17 +75,21 @@ const GameList = () => {
         return <BsNintendoSwitch />;
       case "macos":
         return <FaApple />;
+      case "android" :
+        return <BsAndroid2 />;
+      case "linux":
+        return <FaLinux />;
       default:
         return null;
     }
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 ps-4 pr-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {games.map((game) => (
         <div
           key={game.id}
-          className="bg-transparent bg-opacity-60 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden"
+          className="bg-transparent bg-opacity-60 backdrop-blur-lg shadow-lg rounded-lg overflow-hidden text-white"
         >
           <img
             src={game.background_image}
@@ -95,17 +99,17 @@ const GameList = () => {
           <div className="p-4">
             <h2 className="text-xl font-semibold mb-2">{game.name}</h2>
             <div className="flex items-center mb-2">
-              <span className="text-gray-700 mr-2">Platforms:</span>
+              <span className="text-white mr-2">Platforms:</span>
               {game.platforms.map((platform) => (
-                <span key={platform.platform.id} className="mr-2">
+                <span key={platform.platform.id} className="flex h-4 w-6">
                   {getPlatformIcon(platform.platform.name)}
                 </span>
               ))}
             </div>
-            <p className="text-gray-700 mb-2">
+            <p className="text-white mb-2">
               Genres: {game.genres.map((genre) => genre.name).join(", ")}
             </p>
-            <p className="text-gray-700 mb-2">Rating: {game.rating}</p>
+            <p className="text-white mb-2">Rating: {game.rating}</p>
             {game.clip && (
               <video controls className="w-full">
                 <source src={game.clip.clip} type="video/mp4" />
