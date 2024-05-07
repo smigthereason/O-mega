@@ -60,7 +60,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo with Link to Home */}
         <Link to="/" className="flex items-center text-white">
-          <img src={Logo} alt="Logo" className="h-14 w-auto mr-2" />
+          <img src={Logo} alt="Logo" className="h-12 w-auto mr-2" />
         </Link>
 
         {/* SearchBar */}

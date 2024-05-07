@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 // import { Link } from "react-router-dom";
 import Navbar from './Navbar';
+import VideoBackground from "../Assets/4k_Mystery.mp4";
+ 
 
 function SignupPage() {
     const [formData, setFormData] = useState({
@@ -36,6 +38,8 @@ function SignupPage() {
         <>
         {/* <header><Link to="/">Home</Link></header> */}
         <Navbar />
+        <section className="video-section">
+        <video src={VideoBackground} autoPlay loop muted className="video-background" />
         <div className="flex items-center justify-center bg-cover h-screen bg-[url('/src/Assets/Miles .jpeg')]">
         <div className="w-11/12 md:w-2/3 lg:w-1/2 xl:w-1/3 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <h2 className="text-2xl text-center font-semibold mb-4">Sign Up</h2>
@@ -60,6 +64,7 @@ function SignupPage() {
             </form>
         </div>
         </div>
+        </section>
         </>
     );
 }

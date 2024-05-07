@@ -1,5 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
+import VideoBackground from "../Assets/4k_Mystery.mp4";
+
 // import { Link } from 'react-router-dom';
 
 
@@ -7,8 +9,10 @@ const Login = () => {
   return (
     <>
     <Navbar />
+    <section className="video-section">
+        <video src={VideoBackground} autoPlay loop muted className="video-background" />
     <div className="flex items-center justify-center bg-cover h-screen bg-[url('/src/Assets/Miles .jpeg')]">
-      <div className="w-11/12 md:w-2/3 lg:w-1/2 xl:w-1/3 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div className="w-11/12 md:w-2/3 lg:w-1/2 xl:w-1/3 backdrop-blur-sm bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h2 className="text-2xl text-center font-bold mb-6">Log In</h2>
         <form>
           <div className="mb-4">
@@ -44,6 +48,7 @@ const Login = () => {
         </form>
       </div>
       </div>
+      </section>
     </>
   );
 };
