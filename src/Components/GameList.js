@@ -11,7 +11,7 @@ const GameList = () => {
     const fetchGames = async () => {
       try {
         const response = await fetch(
-          "https://api.rawg.io/api/games?key=6e2c3d10b67342d8a5dac993f10b5393&dates=2018-01-01,2022-12-31&ordering=-added&page_size=200"
+          "https://api.rawg.io/api/games?key=6e2c3d10b67342d8a5dac993f10b5393&dates=2021-01-01,2023-12-31&ordering=-added&page_size=200"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok.");
