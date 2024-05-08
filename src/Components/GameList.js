@@ -64,7 +64,7 @@ const GameList = () => {
     return (
       <div className="flex">
         {stars.map((star, index) => (
-          <div key={index} className="flex items-center">
+          <div key={index} className="flex items-center text-center justify-between">
             {star}
           </div>
         ))}
