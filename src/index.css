@@ -36,38 +36,6 @@ code {
   object-fit: fill;
 }
 
-.menu {
-  position: fixed;
-  top: 0;
-  left: -20%; /* Initially off-screen */
-  width: 20%;
-  height: 100vh;
-  background-color: white;
-  z-index: 1000;
-  transition: left 0.3s ease;
-}
-
-.menu.open {
-  left: 0; /* Slide in when open */
-}
-
-.menu-header {
-  padding: 1rem;
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.menu-content {
-  padding: 1rem;
-}
-
-.menu button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
 
 .content-wrapper {
   transition: transform 0.3s ease;

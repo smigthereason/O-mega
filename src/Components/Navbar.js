@@ -79,10 +79,11 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-700 py-4">
       <div className="container mx-auto flex items-center justify-between">
-        <div className="flex items-center justify-between px-4 py-4 mx-0">
+        <div className="flex items-center justify-between px-4 py-4 ">
           {/* Menu Kebab Icon */}
+          {/* flex text-white h-8 w-20  */}
           <HiMenuAlt1
-            className="flex text-white h-8 w-20 cursor-pointer"
+            className="cursor-pointer size-12  flex items-center justify-center text-white"
             onClick={toggleMenu} // Add onClick event to open/close menu
           />
 
