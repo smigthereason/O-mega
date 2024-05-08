@@ -4,9 +4,12 @@
     left: -300px; /* Initial position outside the viewport */
     width: 300px;
     height: 100vh;
-    background-color: #fff;
+    background-color: #080808;
     transition: left 0.3s ease;
     z-index: 1000;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: left;
   }
   
   .open {
@@ -15,12 +18,12 @@
   
   .menu-header {
     padding: 10px;
-    background-color: #333;
     color: #fff;
   }
   
   .menu-content {
-    padding: 20px;
+    padding: 40px;
+  
   }
   
   .backdrop {
